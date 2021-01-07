@@ -24,4 +24,6 @@ public interface EmployeeService {
     List<Employee> createALl(List<Employee> employees);
 
     Employee checkDepartmentAndProject(Department department, Project project);
+
+    void assignProjectToEmployee(Integer employeeId, Long projectId);
 }

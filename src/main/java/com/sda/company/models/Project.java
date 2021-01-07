@@ -1,5 +1,7 @@
 package com.sda.company.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -16,6 +18,7 @@ public class Project {
 
     //Relationships
     @ManyToMany(mappedBy = "projectList")
+    @JsonIgnoreProperties("projectList")
     private List<Employee> employeeList;
 
 

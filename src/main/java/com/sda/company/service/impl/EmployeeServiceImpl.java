@@ -6,6 +6,7 @@ import com.sda.company.models.Department;
 import com.sda.company.models.Employee;
 import com.sda.company.models.Project;
 import com.sda.company.repository.EmployeeRepository;
+import com.sda.company.repository.ProjectRepository;
 import com.sda.company.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -15,15 +16,18 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
     private final EmployeeRepository employeeRepository;
+    private final ProjectRepository projectRepository;
 
     @Autowired
-    public EmployeeServiceImpl(EmployeeRepository employeeRepository) {
+    public EmployeeServiceImpl(EmployeeRepository employeeRepository,ProjectRepository projectRepository) {
         this.employeeRepository = employeeRepository;
+        this.projectRepository = projectRepository;
     }
 
     @Override
@@ -66,5 +70,15 @@ public class EmployeeServiceImpl implements EmployeeService {
                 .orElseThrow(() -> new EmployeeException("test" + department + project + "not found"));
     }
 
+    @Override
+    public void assignProjectToEmployee(Integer employeeId, Long projectId) {
+        Optional<Employee> employee = employeeRepository.findById(employeeId);
+        Optional<Project> project = projectRepository.findById(projectId);
 
+        employee.get().getProjectList().add(project.get());
+        employeeRepository.save(employee.get());
+
+        project.get().getEmployeeList().add(employee.get());
+        projectRepository.save(project.get());
+    }
 }
