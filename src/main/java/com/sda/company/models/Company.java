@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-@Slf4j
+
 @Entity
 // este recomandat sa folosesti (name = "") pentru denumirea tabelelor
 @Table(name = "company")

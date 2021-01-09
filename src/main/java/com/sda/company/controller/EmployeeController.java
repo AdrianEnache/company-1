@@ -5,15 +5,12 @@ import com.sda.company.models.Department;
 import com.sda.company.models.Employee;
 import com.sda.company.models.Project;
 import com.sda.company.service.EmployeeService;
-import com.sda.company.service.ProjectService;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Slf4j
 // pentru fiecare platforma se realizeaza un Controller custom
 @RestController
 @RequestMapping("/api/v1/employee")
@@ -44,26 +41,22 @@ public class EmployeeController {
     public ResponseEntity<List<Employee>> getAll(@RequestParam(defaultValue = "0") Integer pageNo,
                                                  @RequestParam(defaultValue = "10") Integer pageSize,
                                                  @RequestParam(defaultValue = "id") String sortBy) {
-        log.info("Get All method called!");
         return ResponseEntity.ok(employeeService.getAll(pageNo, pageSize, sortBy));
     }
 
     @DeleteMapping("/deleteById")
     public void deleteById(@RequestParam Integer id) {
         employeeService.deleteById(id);
-        log.info("Item deleted, id = {}", id);
     }
 
     @GetMapping("/findById")
     //  RequestParam - ii spune programului ca va avea nevoie de un parametru de tip Integer id
     public Employee findById(@RequestParam Integer id) {
-        log.info("FindById method called, id = {}", id);
         return employeeService.findById(id);
     }
 
     @PutMapping("/update")
     public ResponseEntity<Employee> update(@RequestBody Employee employee) {
-        log.info("Update method called !");
         return ResponseEntity.ok(employeeService.update(employee));
     }
 
@@ -83,7 +76,6 @@ public class EmployeeController {
     @GetMapping("/getDepartment&Project")
     public String getDepartmentAndProject(@RequestParam Integer id) {
         Employee employee = employeeService.findById(id);
-        log.info("Get department and project from employee, id = {}", id);
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("Department: ").append(employee.getDepartment().getName()).append("\nProject: ");
         employee.getProjectList().forEach(project -> stringBuilder.append(project.getName()).append(" "));
