@@ -1,7 +1,6 @@
 package com.sda.company.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.extern.slf4j.Slf4j;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -97,4 +96,6 @@ public class Company {
     public void setEmail(String email) {
         this.email = email;
     }
+
+
 }

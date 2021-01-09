@@ -12,7 +12,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-
 import java.util.List;
 
 @Service
@@ -74,5 +73,9 @@ public class CompanyServiceImpl implements CompanyService {
     @Override
     public List<Company> createALl(List<Company> companies) {
         return (List<Company>) companyRepository.saveAll(companies);
+    }
+
+    public CompanyRepository getCompanyRepository() {
+        return companyRepository;
     }
 }

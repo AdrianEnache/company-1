@@ -1,6 +1,5 @@
 package com.sda.company.service;
 
-import com.sda.company.models.Department;
 import com.sda.company.models.Project;
 
 import java.util.List;

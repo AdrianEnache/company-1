@@ -1,7 +1,6 @@
 package com.sda.company.repository;
 
 import com.sda.company.models.Company;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 

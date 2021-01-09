@@ -58,4 +58,8 @@ public class DepartmentServiceImpl implements DepartmentService {
         return departmentRepository.findByName(name)
                 .orElseThrow(() -> new DepartmentException("Department with name : " + name + " was not found."));
     }
+
+    public DepartmentRepository getDepartmentRepository() {
+        return departmentRepository;
+    }
 }
