@@ -82,5 +82,10 @@ public class EmployeeServiceImpl implements EmployeeService {
         projectRepository.save(project.get());
     }
 
+    @Override
+    public List<Employee> findAllEmployeesBySpecificName(String name) {
+        return employeeRepository.getAllEmployeesBySpecificName(name);
+    }
+
 
 }

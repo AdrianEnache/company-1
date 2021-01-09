@@ -26,4 +26,6 @@ public interface EmployeeService {
     Employee checkDepartmentAndProject(Department department, Project project);
 
     void assignProjectToEmployee(Integer employeeId, Long projectId);
+
+    List<Employee> findAllEmployeesBySpecificName(String name);
 }

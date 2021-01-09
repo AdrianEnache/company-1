@@ -88,4 +88,9 @@ public class EmployeeController {
                               @RequestParam Long projectId) {
         employeeService.assignProjectToEmployee(employeeId, projectId);
     }
+
+    @GetMapping("/findEmployeeBySpecifiName")
+    public ResponseEntity<List<Employee>> findEmployeeBySpecificName(@RequestParam String name){
+        return ResponseEntity.ok(employeeService.findAllEmployeesBySpecificName(name));
+    }
 }
