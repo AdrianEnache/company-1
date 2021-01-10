@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+    <body>
+        <h1>Home Page</h1>
+        <h2>Click to check companies</h2>
+        <form th:action="@{'/showAllCompanies'}" th:method="get">
+            <input type="hidden" name="_method" value="get"/>
+            <input type="submit" value="Show All"/>
+        </form>
+
+
+    </body>
+</html>
