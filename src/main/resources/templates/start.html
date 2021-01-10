@@ -3,18 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Hello Page</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/home.css}"/>
 </head>
-    <body>
-        <form th:action="@{'/login'}" th:object="${loginForm}" method="post">
-            <label for="userName">User Name</label>
-            <input type="text" id="userName" name="userName" autofocus="autofocus"/>
-            <br>
-            <br>
-            <label for="password">Password</label>
-            <input type="text" id="password" name="password" autofocus="autofocus"/>
-            <br>
-            <br>
-            <input type="submit" id="button" name="button" value="Login"/>
-        </form>
-    </body>
+    <div id="aDiv">
+        <body>
+            <form th:action="@{'/login'}" th:object="${loginForm}" method="post">
+                <label for="userName">User Name</label>
+                <input type="text" id="userName" name="userName" autofocus="autofocus"/>
+                <br>
+                <br>
+                <label for="password">Password</label>
+                <input type="text" id="password" name="password" autofocus="autofocus"/>
+                <br>
+                <br>
+                <input type="submit" id="button" name="button" value="Login"/>
+            </form>
+        </body>
+    </div>
 </html>

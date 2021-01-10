@@ -32,22 +32,7 @@ public class Company {
     @Column
     private String email;
 
-    // == Relationships ==
-    @OneToMany(mappedBy = "company",
-            targetEntity = Employee.class,
-            cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER)
-    @JsonIgnoreProperties("company")
-    private Set<Employee> employeeSetCompany = new HashSet<>();
-
-    // == Getters and Setters ==
-    public Set<Employee> getEmployeeSetCompany() {
-        return employeeSetCompany;
-    }
-
-    public void setEmployeeSetCompany(Set<Employee> employeeSet) {
-        this.employeeSetCompany = employeeSet;
-    }
+    // == getters & setters ==
 
     public Integer getId() {
         return id;
