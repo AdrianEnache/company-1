@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.sda</groupId>
-    <artifactId>company</artifactId>
+    <artifactId>company-thymeleaf</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>company</name>
+    <name>company-thymeleaf</name>
     <description>sda spring boot</description>
 
     <properties>
@@ -19,6 +19,11 @@
     </properties>
 
     <dependencies>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>com.h2database</groupId>

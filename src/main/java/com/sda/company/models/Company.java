@@ -1,10 +1,6 @@
 package com.sda.company.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
 
 
 @Entity
@@ -32,22 +28,9 @@ public class Company {
     @Column
     private String email;
 
-    // == Relationships ==
-    @OneToMany(mappedBy = "company",
-            targetEntity = Employee.class,
-            cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER)
-    @JsonIgnoreProperties("company")
-    private Set<Employee> employeeSetCompany = new HashSet<>();
 
     // == Getters and Setters ==
-    public Set<Employee> getEmployeeSetCompany() {
-        return employeeSetCompany;
-    }
 
-    public void setEmployeeSetCompany(Set<Employee> employeeSet) {
-        this.employeeSetCompany = employeeSet;
-    }
 
     public Integer getId() {
         return id;

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Company Table</title>
+</head>
+<body>
+<h1>Company table</h1>
+<table>
+    <thead>
+    <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Registration Number</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="companyList : ${list}">
+        <td th:text="${companyList.id}"></td>
+        <td th:text="${companyList.name}"></td>
+        <td th:text="${companyList.registrationNumber}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
